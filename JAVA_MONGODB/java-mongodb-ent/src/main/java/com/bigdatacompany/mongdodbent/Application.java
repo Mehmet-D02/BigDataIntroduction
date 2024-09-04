@@ -38,32 +38,32 @@ public class Application {
                 .append("Job","Entrepreneur");
 
         //Creating Process
-        // personalCollection.insertOne(Document.parse(data.toJson())); //Add one document
+         personalCollection.insertOne(Document.parse(data.toJson())); //Add one document
 
-       /* Document parse = Document.parse(data.toJson());
+        Document parse = Document.parse(data.toJson());
         Document parse2 = Document.parse(data2.toJson());
-        personalCollection.insertMany(Arrays.asList(parse,parse2));*/ //Add Many document
+        personalCollection.insertMany(Arrays.asList(parse,parse2)); //Add Many document
 
         //Reading Process
-       /* FindIterable<Document> documents = personalCollection.find(); //All Document Reading
-        FindIterable<Document> documents1 = personalCollection.find(new BasicDBObject("date", 1999)); // Filtering*/
+        FindIterable<Document> documents = personalCollection.find(); //All Document Reading
+        FindIterable<Document> documents1 = personalCollection.find(new BasicDBObject("date", 1999)); // Filtering
 
-       /* for(Document doc:documents){
+        for(Document doc:documents){
             System.out.println(doc.toJson());
         };
         for (Document doc1:documents1){
             System.out.println(doc1.toJson());
-        }*/
+        }
 
         //Update Process
-        /*Bson filter = Filters.exists( "Job");
+        Bson filter = Filters.exists( "Job");
         Bson update = Updates.set("child", "Nevada Musk");
-        personalCollection.updateOne(filter,update);*/
+        personalCollection.updateOne(filter,update);
 
         //Delete Process
-        /*Bson deleteFilter = Filters.eq("country","England");
+        Bson deleteFilter = Filters.eq("country","England");
         personalCollection.deleteOne(deleteFilter); //Delete One items
-        personalCollection.deleteMany(deleteFilter); //Delete  Many Items */
+        personalCollection.deleteMany(deleteFilter); //Delete  Many Items 
 
 
         personalCollection.drop(); //Delete Collection
